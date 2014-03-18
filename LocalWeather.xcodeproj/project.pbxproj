@@ -11,6 +11,7 @@
 		273BE9CA179B2D0500D7FBA6 /* _CurrentLocalWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 273BE9C7179B2D0500D7FBA6 /* _CurrentLocalWeather.m */; };
 		273BE9CB179B2D0500D7FBA6 /* CurrentLocalWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 273BE9C9179B2D0500D7FBA6 /* CurrentLocalWeather.m */; };
 		278F0ABD179B33EE0035F125 /* WeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F0ABC179B33EE0035F125 /* WeatherForecast.m */; };
+		27A4C76218D6392E00432435 /* weather.html in Resources */ = {isa = PBXBuildFile; fileRef = 27A4C76118D6392E00432435 /* weather.html */; };
 		27B59B511785DE4A00107F49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B59B501785DE4A00107F49 /* Foundation.framework */; };
 		27B59B531785DE4A00107F49 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B59B521785DE4A00107F49 /* CoreGraphics.framework */; };
 		27B59B551785DE4A00107F49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B59B541785DE4A00107F49 /* UIKit.framework */; };
@@ -75,6 +76,7 @@
 		278F0AB7179B2EC80035F125 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		278F0AB8179B2EC80035F125 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		278F0ABC179B33EE0035F125 /* WeatherForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherForecast.m; sourceTree = "<group>"; };
+		27A4C76118D6392E00432435 /* weather.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = weather.html; sourceTree = "<group>"; };
 		27B59B4D1785DE4A00107F49 /* LocalWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B59B501785DE4A00107F49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		27B59B521785DE4A00107F49 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -207,6 +209,7 @@
 		27B59B561785DE4A00107F49 /* LocalWeather */ = {
 			isa = PBXGroup;
 			children = (
+				27A4C76118D6392E00432435 /* weather.html */,
 				27B59B851785DE7B00107F49 /* Fetcher */,
 				9A09C239178E3412003616B4 /* LocalWeatherUI */,
 				9A09C238178E33FF003616B4 /* App Delegate */,
@@ -405,6 +408,7 @@
 				27B59B5B1785DE4A00107F49 /* InfoPlist.strings in Resources */,
 				9AC51962178D95700008D9E2 /* Main.storyboard in Resources */,
 				9A09C23E178E3BB3003616B4 /* SVProgressHUD.bundle in Resources */,
+				27A4C76218D6392E00432435 /* weather.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

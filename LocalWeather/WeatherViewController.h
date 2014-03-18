@@ -10,7 +10,7 @@
 
 #import "CurrentWeatherView.h"
 
-@interface WeatherViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface WeatherViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *cityStateCountryLabel;
 @property (nonatomic, weak) IBOutlet CurrentWeatherView *currentWeatherView;

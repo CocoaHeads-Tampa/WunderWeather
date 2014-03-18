@@ -12,20 +12,9 @@
 
 @interface CurrentWeatherView : UIView
 
-@property (nonatomic, weak) IBOutlet UILabel *cityStateCountryLabel;
-@property (nonatomic, weak) IBOutlet UILabel *feelsLikeTempLabel;
-@property (nonatomic, weak) IBOutlet UILabel *currentTempLabel;
-@property (nonatomic, weak) IBOutlet UILabel *currentWeatherLabel;
-@property (nonatomic, weak) IBOutlet UILabel *relativeHumidityLabel;
-@property (nonatomic, weak) IBOutlet UILabel *airPressureLabel;
-@property (nonatomic, weak) IBOutlet UILabel *sunriseLabel;
-@property (nonatomic, weak) IBOutlet UILabel *sunsetLabel;
-@property (nonatomic, weak) IBOutlet UILabel *windSpeedLabel;
-@property (nonatomic, weak) IBOutlet UILabel *windDirectionLabel;
-@property (nonatomic, weak) IBOutlet UILabel *windGustLabel;
-@property (nonatomic, weak) IBOutlet UILabel *cloudinessLabel;
-@property (nonatomic, weak) IBOutlet UILabel *lastUpdatedLabel;
+@property (nonatomic, weak) IBOutlet UIWebView *webView;
 
--(void)setLabelsFromModel:(CurrentWeather *)currentWeather;
+-(void)setValuesInHTMLFromModel:(CurrentWeather *)currentWeather;
+-(void)loadHTML;
 
 @end

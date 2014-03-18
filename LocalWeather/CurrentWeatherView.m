@@ -13,28 +13,34 @@
 
 @implementation CurrentWeatherView
 
-- (id)initWithFrame:(CGRect)frame
+-(id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
     }
     return self;
 }
 
--(void)setLabelsFromModel:(CurrentWeather *)currentWeather
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    _airPressureLabel.text = [NSString stringWithFormat:@"%.1f", [currentWeather mmHG]];
-    _feelsLikeTempLabel.text = [NSString stringWithFormat:@"%.1f", [currentWeather currentTempForScale:TempScaleFahrenheit]];
-    _currentTempLabel.text = [NSString stringWithFormat:@"%.1f", [currentWeather currentTempForScale:TempScaleFahrenheit]];
-    _relativeHumidityLabel.text = [currentWeather relativeHumidity];
-    _currentWeatherLabel.text = [currentWeather weatherDescription];
-    _cloudinessLabel.text = [NSString stringWithFormat:@"%.1f%%", [currentWeather cloudiness]];
-    _windDirectionLabel.text = [currentWeather windHeadingString];
-    _windSpeedLabel.text = [NSString stringWithFormat:@"%.1f", [currentWeather windSpeed]];
-    _cityStateCountryLabel.text = [currentWeather localeName];
-    _lastUpdatedLabel.text = [NSString stringWithFormat:@"Last updated: %@", [currentWeather lastUpdatedDateTime]];
-    _windGustLabel.text = [NSString stringWithFormat:@"%.1f",[currentWeather windGust]];
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+    }
+    return self;
+}
+
+-(void)loadHTML
+{
+    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"weather" ofType:@"html"];
+    NSString *html = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+    [_webView loadHTMLString:html baseURL:nil];
+}
+
+-(void)setValuesInHTMLFromModel:(CurrentWeather *)currentWeather
+{
+    NSString *json = [currentWeather toJSON];
+    NSString *javascriptCall = [NSString stringWithFormat:@"setInitialValues(%@)", json];
+    [_webView stringByEvaluatingJavaScriptFromString:javascriptCall];
 }
 
 @end

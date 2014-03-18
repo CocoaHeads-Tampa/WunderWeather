@@ -1,0 +1,134 @@
+<html>
+<head>
+
+<!-- Javascript functions that get called from the native layer -->
+<script type='text/javascript'>
+
+function setCurrentTemp(currentTemp) {
+    var currentTempDiv = document.getElementById('current');
+    currentTempDiv.innerHTML = currentTemp;
+}
+
+function setFeelsLikeTemp(feelsLike) {
+    var tempDiv = document.getElementById('feels_like');
+    tempDiv.innerHTML = feelsLike;
+}
+
+function setHumidity(humidity) {
+    var ddiv = document.getElementById('humidity');
+    ddiv.innerHTML = humidity;
+}
+
+function setDewPoint(dewpt) {
+    var pdiv = document.getElementById('dewpoint');
+    pdiv.innerHTML = dewpt;
+}
+
+function setAirPressure(airPress) {
+    var div = document.getElementById('airpressure');
+    div.innerHTML = airPress;
+}
+
+function setWindDirection(dir) {
+    var div = document.getElementById('wind_direction');
+    div.innerHTML = dir;
+}
+
+function setWindSpeed(spd) {
+    var div = document.getElementById('wind_speed');
+    div.innerHTML = spd;
+}
+
+function setWindGusts(gusts) {
+    var div = document.getElementById('wind_gusts');
+    div.innerHTML = gusts;
+}
+
+function setInitialValues(valuesDictionary) {
+    setCurrentTemp(valuesDictionary['current']);
+    setFeelsLikeTemp(valuesDictionary['feels_like']);
+    setHumidity(valuesDictionary['humidity']);
+    setDewPoint(valuesDictionary['dew_point']);
+    setAirPressure(valuesDictionary['air_pressure']);
+    setWindSpeed(valuesDictionary['wind_speed']);
+    setWindDirection(valuesDictionary['wind_dir']);
+    setWindGusts(valuesDictionary['wind_gust']);
+}
+
+</script>
+
+<style>
+.largetype {
+    font-family:Helvetica-Bold;
+    font-size: 18pt;
+    color:yellow;
+}
+.smalltype {
+    font-family: Helvetica-Light;
+    font-size: 14pt;
+}
+</style>
+</head>
+<body style='background-color:#071F44'>
+
+<div style='width:100%;height:30px'>
+    <button style='background-color:yellow;float:right;width:80px;height:20px' onclick='document.location="RELOAD"'>
+    Reload
+    </button>
+</div>
+
+<div class="largetype" style='float:left;width:50%;'>
+    <span class='smalltype'>Current: </span>
+    <div id="current">120F</div>
+</div>
+
+<div class="largetype" style='float:left;width:50%;'>
+	<span class='smalltype'>Feels Like: </span>
+    <div id="feels_like">
+	</div>
+</div>
+<div style='clear:both'></div>
+
+<div class="largetype" style='float:left;width:50%;'>
+	<span class='smalltype'>Humidity: </span>
+	<div id="humidity">
+	</div>
+</div>
+<div class="largetype" style='float:left;width:50%;'>
+	<span class='smalltype'>Dew Point: </span>
+	<div id="dewpoint">
+	</div>
+</div>
+
+<div style='clear:both'></div>
+
+<div class="largetype" style='float:left;width:50%;'>
+	<span class='smalltype'>Air Pressure: </span>
+	<div id="airpressure">
+	</div>
+</div>
+
+<div class="largetype" style='float:left;width:50%;'>
+	<span class='smalltype'>Wind Direction: </span>
+	<div id="wind_direction">
+	</div>
+</div>
+
+<div style='clear:both'></div>
+
+<div class="largetype" style='float:left;width:50%;'>
+	<span class='smalltype'>Wind Speed: </span>
+	<div id="wind_speed">
+	</div>
+</div>
+
+<div class="largetype" style='float:left;width:50%;'>
+	<span class='smalltype'>Wind Gusts: </span>
+	<div id="wind_gusts">
+	</div>
+</div>
+
+<div style='clear:both'></div>
+
+</body>
+</html>

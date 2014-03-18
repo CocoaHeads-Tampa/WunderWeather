@@ -30,5 +30,6 @@ typedef enum {
 -(NSString *)lastUpdatedDateTime;
 
 -(CurrentWeather *)initWithDict:(NSDictionary *)weatherDict;
+-(NSString *)toJSON;
 
 @end

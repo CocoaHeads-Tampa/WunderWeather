@@ -72,6 +72,16 @@
     return temperature;
 }
 
+-(float)dewPointForScale:(WeatherTempScale)scale
+{
+    float temperature;
+    if(scale == TempScaleCelsius)
+        temperature = [_currentWeather[@"current_observation"][@"dewpoint_c"] floatValue];
+    else
+        temperature = [_currentWeather[@"current_observation"][@"dewpoint_f"] floatValue];
+    return temperature;
+}
+
 -(float)mmHG
 {
     float mmHG = [_currentWeather[@"current_observation"][@"pressure_mb"] floatValue];
@@ -137,5 +147,20 @@
     return updateDateTime;
 }
 
+-(NSString *)toJSON
+{
+    NSMutableString *jsonStr = [[NSMutableString alloc] initWithCapacity:0];
+    [jsonStr appendString:@"{"];
+    [jsonStr appendFormat:@"\"current\":\"%.2fF\",", [self currentTempForScale:TempScaleFahrenheit]];
+    [jsonStr appendFormat:@"\"feels_like\":\"%.2fF\",", [self feelsLikeTempForScale:TempScaleFahrenheit]];
+    [jsonStr appendFormat:@"\"humidity\":\"%@\",", [self relativeHumidity]];
+    [jsonStr appendFormat:@"\"dew_point\":\"%.1fF\",", [self dewPointForScale:TempScaleFahrenheit]];
+    [jsonStr appendFormat:@"\"air_pressure\":\"%.1f mmHG\",", [self mmHG]];
+    [jsonStr appendFormat:@"\"wind_speed\":\"%.1f mph\",", [self windSpeed]];
+    [jsonStr appendFormat:@"\"wind_gust\":\"%.1f mph\",", [self windGust]];
+    [jsonStr appendFormat:@"\"wind_dir\":\"%@\"", [self windHeadingString]];
+    [jsonStr appendString:@"}"];
+    return jsonStr;
+}
 
 @end

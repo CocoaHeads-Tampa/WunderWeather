@@ -11,7 +11,7 @@
 #import "SVProgressHUD.h"
 #import "ForecastTableCell.h"
 
-@interface WeatherViewController ()
+@interface WeatherViewController () 
 
 @property (nonatomic, strong) WeatherForecast *forecast;
 
@@ -29,7 +29,7 @@
             if(nil == err)
             {
                 CurrentWeather *cw = [fetcher currentWeather];
-                [_currentWeatherView setLabelsFromModel:cw];
+                [_currentWeatherView setValuesInHTMLFromModel:cw];
             }
             [SVProgressHUD dismiss];
         });
@@ -50,13 +50,28 @@
 
 -(void)viewDidLoad
 {
-    [super viewDidLoad];    
+    [super viewDidLoad];
+    [_currentWeatherView loadHTML];
     [self refresh:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - WebView
+
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    BOOL shouldReturn = YES;
+    NSString *uri = [[request URL] lastPathComponent];
+    if([@"RELOAD" isEqualToString:uri])
+    {
+        shouldReturn = NO;
+        [self refresh:nil];
+    }
+    return shouldReturn;
 }
 
 #pragma mark - UITableView data source
